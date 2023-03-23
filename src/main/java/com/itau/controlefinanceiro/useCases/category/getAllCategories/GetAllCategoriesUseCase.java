@@ -1,17 +1,19 @@
-package com.itau.controlefinanceiro.useCases.category.getCategoryByName;
+package com.itau.controlefinanceiro.useCases.category.getAllCategories;
 
 import com.itau.controlefinanceiro.entities.Category;
 import com.itau.controlefinanceiro.repositories.ICategoryRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @RequiredArgsConstructor
 @Service
-public class GetCategoryByNameUseCase {
+public class GetAllCategoriesUseCase {
 
     private final ICategoryRepository iCategoryRepository;
 
-    public Category execute(String name) {
-        return iCategoryRepository.findByName(name);
+    public List<Category> execute() {
+        return iCategoryRepository.findAll();
     }
 }

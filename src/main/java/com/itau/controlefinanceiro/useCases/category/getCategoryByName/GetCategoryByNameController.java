@@ -6,15 +6,15 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("v1/category")
+@RequestMapping("v1/category/name")
 @RequiredArgsConstructor
 public class GetCategoryByNameController {
 
     private final GetCategoryByNameUseCase getCategoryByNameUseCase;
 
-    @GetMapping("{name}")
+    @GetMapping()
     @ResponseStatus(HttpStatus.OK)
-    public Category getCategoryByName(@PathVariable String name) {
+    public Category getCategoryByName(@RequestParam String name) {
         return getCategoryByNameUseCase.execute(name);
     }
 }
